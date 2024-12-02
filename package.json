@@ -1,0 +1,105 @@
+{
+  "name": "web",
+  "version": "1.0.0",
+  "private": true,
+  "keywords": [],
+  "license": "",
+  "contributors": [],
+  "scripts": {
+    "prebuild": "vue-tsc --noEmit",
+    "build": "pnpm prebuild && vite build --mode staging",
+    "build:pro": "pnpm prebuild && vite build --mode production",
+    "clean": "rimraf dist node_modules",
+    "dev": "vite",
+    "lint": "eslint . --fix",
+    "lint:format": "prettier '{src/**/*.{js,ts,tsx,md,html,less,css,json,vue},package.json,*.config.js,locales/*.yml}' --write",
+    "lint:staged": "lint-staged",
+    "preview": "vite preview",
+    "update": "pnpm install && pnpm prune"
+  },
+  "lint-staged": {
+    "src/**/*.{js,ts,jsx,tsx,,vue}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "src/**/*{less,css,scss,json,html}": [
+      "prettier --write"
+    ],
+    "*.{js,ts,json}": [
+      "prettier --write"
+    ],
+    "locales/*.yml": [
+      "prettier --write"
+    ],
+    "package.json,.eslintrc,.npmrc": [
+      "prettier --write"
+    ]
+  },
+  "browserslist": [
+    "> 1%",
+    "last 5 Chrome versions",
+    "not ie <= 11"
+  ],
+  "devDependencies": {
+    "@esbuild-plugins/node-globals-polyfill": "^0.2.3",
+    "@types/lodash": "^4.14.197",
+    "@types/node": "^17.0.45",
+    "@types/postcss-import": "^14.0.0",
+    "@types/ws": "^8.5.5",
+    "@typescript-eslint/eslint-plugin": "^5.62.0",
+    "@varlet/ui": "^1.27.20",
+    "@vitejs/plugin-vue": "^2.3.4",
+    "@vueuse/core": "^8.9.4",
+    "@vueuse/shared": "^9.13.0",
+    "autoprefixer": "^10.4.15",
+    "axios": "^1.4.0",
+    "daisyui": "^2.52.0",
+    "dayjs": "^1.11.9",
+    "element-plus": "^2.3.9",
+    "eslint": "^8.47.0",
+    "eslint-config-prettier": "^8.10.0",
+    "eslint-plugin-import": "^2.28.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-tailwindcss": "^3.13.0",
+    "eslint-plugin-vue": "^9.17.0",
+    "ethers": "5.7.0",
+    "ethers-multicall": "^0.2.3",
+    "import": "^0.0.6",
+    "less": "^4.2.0",
+    "lightweight-charts": "^3.8.0",
+    "lint-staged": "^13.3.0",
+    "lodash": "^4.17.21",
+    "mitt": "^3.0.1",
+    "path": "^0.12.7",
+    "pinia": "^2.1.6",
+    "pinia-plugin-persistedstate": "^3.2.0",
+    "postcss": "^8.4.28",
+    "postcss-import": "^14.1.0",
+    "prettier": "^2.8.8",
+    "prettier-eslint": "^15.0.1",
+    "prettier-plugin-packagejson": "^2.4.5",
+    "prettier-plugin-tailwindcss": "^0.1.13",
+    "rimraf": "^3.0.2",
+    "rollup-plugin-node-polyfills": "^0.2.1",
+    "rollup-plugin-polyfill-node": "^0.12.0",
+    "rollup-plugin-typescript2": "^0.34.1",
+    "simple-git-hooks": "^2.9.0",
+    "tailwindcss": "^3.3.3",
+    "typescript": "^4.9.5",
+    "unplugin-auto-import": "^0.7.2",
+    "unplugin-element-plus": "^0.4.1",
+    "unplugin-icons": "^0.14.15",
+    "unplugin-vue-components": "^0.19.9",
+    "vite": "^4.4.9",
+    "vue": "^3.3.4",
+    "vue-eslint-parser": "^9.3.1",
+    "vue-i18n": "^9.2.2",
+    "vue-router": "^4.2.4",
+    "vue-tsc": "^1.8.8",
+    "vue3-popper": "^1.5.0",
+    "ws": "^7.5.9"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "npx lint-staged"
+  }
+}

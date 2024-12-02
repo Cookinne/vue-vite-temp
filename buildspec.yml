@@ -1,0 +1,15 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 18
+    commands:
+      - npm install -g pnpm
+      - pnpm install --no-frozen-lockfile
+  build:
+    commands:
+      - pnpm run build:pro
+artifacts:
+  files:
+    - 'dist-web/**/*'
